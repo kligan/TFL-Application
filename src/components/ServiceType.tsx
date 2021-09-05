@@ -4,7 +4,7 @@ export default function ServiceType(props: any) {
   const { serviceTypes } = props;
   return (
     <div>
-      {serviceTypes.map((serviceType: any, index: any) => {
+      {serviceTypes.map((serviceType: any, index: number) => {
         return (
           <div className="serviceType" key={index}>
             {serviceType.name === "Night" && <NightsStayIcon />}

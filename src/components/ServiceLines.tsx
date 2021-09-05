@@ -7,7 +7,7 @@ export default function ServiceLines(props: any) {
   return (
     <div className="App">
       <Paper>
-        {state.map((item: any, index: any) => {
+        {state.map((item: any, index: number) => {
           const { modeName, name, lineStatuses, serviceTypes } = item;
           return (
             <MenuList className="menuItem" key={index}>

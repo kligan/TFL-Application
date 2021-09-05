@@ -4,7 +4,7 @@ export default function Disruptions(props: any) {
   const { disruptions } = props;
   return (
     <div>
-      {disruptions.map((ele: any, index: any) => {
+      {disruptions.map((ele: any, index: number) => {
         return (
           <div className="disruptions" key={index}>
             {ele.statusSeverity !== 10 && index === 0 ? <WarningIcon /> : null}

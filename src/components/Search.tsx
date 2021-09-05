@@ -23,7 +23,7 @@ export default function Search(props: any) {
         Search
       </Button>
       <div>
-        {state.map((item: any, index: any) => {
+        {state.map((item: any, index: number) => {
           return (
             <List key={index}>
               {search && (

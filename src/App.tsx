@@ -3,16 +3,23 @@ import "./App.css";
 import API from "./api";
 import ServiceLines from "./components/ServiceLines";
 import CycleHire from "./components/CycleHire";
+import { useSelector, useDispatch } from "react-redux";
+import { actions } from "./redux/actions/actions";
+import { RootState } from "./redux/reducers";
 
 function App() {
-  const [state, setState] = useState<any[]>([]);
   const [disruptions, setDisruptions] = useState<boolean>(false);
   const [itemClicked, setItemClicked] = useState<boolean>(false);
   const [message, setMessage] = useState<string>("");
 
+  const storeData = useSelector((state: RootState) => {
+    return state.serviceReducers.data;
+  });
+  const dispatch = useDispatch();
+
   const data = () => {
     API.get("Line/Mode/tube,overground,dlr/Status?detail=true").then((res) => {
-      setState(res.data);
+      dispatch(actions(res.data));
     });
   };
 
@@ -33,7 +40,7 @@ function App() {
 
   return (
     <div className="Main">
-      <ServiceLines state={state} handleClick={handleClick} />
+      <ServiceLines state={storeData} handleClick={handleClick} />
       <CycleHire
         disruptions={disruptions}
         itemClicked={itemClicked}
