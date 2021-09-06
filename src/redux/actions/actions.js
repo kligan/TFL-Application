@@ -12,5 +12,3 @@ export const cyclePointsAction = (items) => {
     payload: items,
   };
 };
-
-// export default actions;
